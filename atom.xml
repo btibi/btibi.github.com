@@ -2,27 +2,32 @@
 layout: nil
 title : Atom Feed
 ---
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>{{ site.title }}</title>
- <link href="{{ site.production_url }}/atom.xml" rel="self"/>
- <link href="{{ site.production_url }}"/>
- <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>{{ site.production_url }}</id>
- <author>
-   <name>{{ site.author.name }}</name>
-   <email>{{ site.author.email }}</email>
- </author>
+  <title>Java Blog</title>
+  <link href="http://btibi.github.com/"/>
+  <link type="application/atom+xml" rel="self" href="http://example.com/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://btibi.github.com/</id>
+  <author>
+    <name>Tibor Baranyi</name>
+    <email>baranyitibi@gmail.com</email>
+  </author>
 
- {% for post in site.posts %}
- <entry>
-   <title>{{ post.title }}</title>
-   <link href="{{ site.production_url }}{{ post.url }}"/>
-   <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>{{ site.production_url }}{{ post.id }}</id>
-   <content type="html">{{ post.content | xml_escape }}</content>
- </entry>
- {% endfor %}
+  {% for post in site.posts %}
+  <entry>
+    <id>http://btibi.github.com{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://btibi.github.com/{{ post.url }}"/>
+    <title>{{ post.title }}</title>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>Tibor Baranyi</name>
+      <uri>http://btibi.github.com/</uri>
+    </author>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
  
 </feed>
