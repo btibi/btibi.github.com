@@ -124,6 +124,3 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
-name: Java blog
-description: Baranyi Tibor Java blog 
-url: http://btibi.github.com
