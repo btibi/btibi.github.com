@@ -10,6 +10,7 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : JAVA Blog
+description: Minden ami Java!
 tagline: Site Tagline
 author :
   name : Tibor Baranyi
