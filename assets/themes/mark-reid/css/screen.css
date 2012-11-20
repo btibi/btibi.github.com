@@ -27,7 +27,7 @@ body {
 	font-size:14px;
 	margin:0;
 	line-height:1.5em;
-	background-image:url(img/main.png);
+	/*background-image:url(img/main.png);*/
 	background-repeat:repeat-x;
 	background-position:bottom left;
 }
@@ -83,7 +83,7 @@ sup { line-height: 1ex; }
 }
 
 #pageHeader h1 a {
-	background-image:url("img/logo.png");
+	/*background-image:url("img/logo.png");*/
 	background-repeat:no-repeat;
 	background-color:#000;
 	width:960px;
