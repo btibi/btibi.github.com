@@ -10,7 +10,7 @@
  * A clean, simple stylesheet that aims for
  * a consistent vertical rhythm.
  *
- * Base font height: 16px
+ * Base font height: 14px
  * Base line length: 24px
  * 
  * AUTHOR: Mark Reid <mark@reid.name>
@@ -21,24 +21,26 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,t
 /* @end */
 
 body {
-	font-family: Palatino, georgia, "times new roman", serif;
-	background-color: whitesmoke;
-	background-position: center -18em;
-	background-repeat: repeat-x; 
+	background-color:#000;
+	font-family:Arial,sans-serif;
+	color:#4c4c4c;
+	font-size:14px;
+	margin:0;
+	line-height:1.5em;
+	background-image:url(img/main.png);
+	background-repeat:repeat-x;
+	background-position:bottom left;
 }
 
 /* Hack via Joel Spolsky to make image rescaling nicer in IE */
 img { -ms-interpolation-mode:bicubic; }
 
 /* IE6 ignores this and uses default size of 16pt */
-html>body { font-size:16px; }
+html>body { font-size:14px; }
 p { margin: 0 0 1.5em 0; text-align: justify; }
 
 a { text-decoration: none; color: #339; }
 a:hover { text-decoration: underline; color: #33f; }
-a.pdf:before { 
-	margin-right: 1em;
-	content: url(/files/css/icon_pdf.gif); }
 
 h1,h2,h3,h4 { 
 	line-height:1em; 
@@ -47,7 +49,11 @@ h1,h2,h3,h4 {
 	clear: left; 	
 	font-family: 'lucida grande', sans-serif; 
 }
-h1 { margin-bottom: 1em; }
+
+h1 {
+	margin-bottom: 1em; 
+}
+
 h2 {
 	font-size: 100%;
 	line-height: 1.5em;
@@ -65,51 +71,101 @@ hr {
 sup { line-height: 1ex; }
 
 #site {
-	max-width: 46em;
-	margin: 1.5em auto 3em auto;
-	line-height:1.5em;
+	width:960px;
+	margin:0 auto;
+	background-repeat:repeat-x;
+	background-image:url("img/wrapper.png");
+}
+
+/* @group pageHeader */
+#pageHeader h1 {
+	margin:0;
+}
+
+#pageHeader h1 a {
+	background-image:url("img/logo.png");
+	background-repeat:no-repeat;
+	background-color:#000;
+	width:960px;
+	height:132px;
+	display:block;
+	text-indent:-9999px;
+}
+
+#menu {
+	background-image:url("img/header.png");
+	background-repeat:repeat-x;
+	width:960px;
+	padding-left:0;
+	padding-top:10px;
+	padding-bottom:8px;
+	margin:0;
+}
+
+#menu li {
+	display:inline;
+}
+
+#menu li a {
+	padding-left:10px;
+	padding-right:10px;
+	text-decoration:none;
+	color:#fff;
+	font-weight:bold;
+	font-size:15px;
 }
 
 #page, #disqus_thread {
-	background: white;
-/*	background-image: url(grid.png); */
-	padding: 3em 3em 1.5em 3em;
-	border: 1px solid #ccc;
+	background: #fff;
+	padding-left:20px;
+	padding-right:20px;
+	width:920px;
+	padding-top:10px;
+	padding-bottom:20px;
+	
+}
+
+#mainWrapper .post h2 {
+	margin-bottom:0;
+}
+
+#mainWrapper .post img.imgleft {
+	margin-right:16px;
+}
+#mainWrapper .post img.imgright {
+	margin-left:16px;
+}
+#mainWrapper .post h2 a {
+	color:#383838;
+	font-size:20px;
+	font-weight:bold;
+	line-height:1.2em;
+	font-family:Tahoma,sans-serif;
+	text-decoration:none;
+}
+
+#mainWrapper .post h3.date, h3.tags {
+	font-size:13px;
+	color:#b4b4b4;
+	margin-top:0;
+	margin-bottom:10px;
 }
 
 /* More experimental CSS3 features */
-#page, #disqus_thread {
-	box-shadow: 2px 2px 8px #aaa;
-	-webkit-box-shadow: 2px 2px 8px #aaa;
-	-moz-box-shadow: 2px 2px 8px #aaa;	
-}
-
 #disqus_thread { padding-top: 0; }
 
-/* TODO
-#page { counter-reset: section; }
-#page h2:before {
-	margin-left: -3.5ex;
-	color: silver;
-	content: "§" counter(section) ". ";
-	counter-increment: section 2;
-}
-*/
-
 /* @group FancyFirst */
-.emphnext + p:first-letter, p.emphfirst:first-letter {
-	font-size: 48px;
-	padding: 0 0.15em 0 0;
+.emphnext:first-letter, p.emphfirst:first-letter {
 	margin:  0.05em 0 -0.15em 0;
 	line-height: 1em;
 	float: left;
 }
 
-.emphnext + p:first-line, p.emphfirst:first-line {
+.emphnext:first-line, p.emphfirst:first-line {
+	font-size: 48px;
 	font-variant: small-caps;
 	font-size: larger;
 }
-/* @end */
 
 .right { float: right; clear: left; }
 .left { float: left; clear: right; }
@@ -157,7 +213,6 @@ caption {
 	line-height: 1.14em;
 	text-align: justify;
 }
-
 /* @end */
 
 /* @group Lists */
@@ -192,55 +247,6 @@ ul.compact li a {
 	width: 70%;
 }
 /* @end */
-
-/* @group Header */
-#header, #header a { color: silver; }
-#header .hover { color: transparent; }
-#header:hover a { color: black; text-shadow: #aaa 2px 2px 3px;}
-#header:hover a:hover { text-decoration: none; }
-#header a:hover .hover { color: silver; }
-#header {
-	position: relative;
-	font-variant: small-caps;
-	line-height: 1em;
-	margin-top: .5em;
-	margin-bottom: 0;
-}
-#header h1 {
-	font-family: Palatino, georgia, "times new roman", serif;
-	margin-bottom: 0;
-	line-height: 0.9em;
-	display: block;
-	font-weight: normal;
-}
-
-#header ul {
-	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 100%;
-	line-height: 1.6em;
-	display: block;
-	margin: 0;
-	width: 60%;
-	text-align: right;
-}
-#header ul li { display: inline; }
-#header ul li a {
-	padding: 0.4em 0.3em 0 0.3em;
-	display: inline;
-}
-#header ul li a:hover {
-	color: blue;
-	border-bottom: 2px solid blue;
-}
-#header .byline {
-	color: silver;
-	font-size: 10pt;
-	line-height: 75%
-}
-#header:hover .byline a { color: silver; text-shadow: none; }
-#header:hover .byline a:hover { color: black; text-shadow: #aaa 1px 1px 2px;}
 
 /* @group Twitter */
 #twitter_update_list { display: inline; margin: 0; }
@@ -347,10 +353,7 @@ pre {
 	padding: 0.5em 1em;
 	overflow: hidden;
 
-	/* Experimental CSS3 stuff */
-	box-shadow: 1px 1px 6px #ccc;
-	-webkit-box-shadow: 1px 1px 6px #ccc;
-	-moz-box-shadow: 1px 1px 6px #ccc;
+
 }
 pre:hover {
 	border-right: none;
@@ -451,35 +454,39 @@ p.delicious-extended:before { content: ' — '; }
 /* @end */
 
 /* @group Footer */
-#footer {
-	margin-top: 0;
-	color: grey;
+
+#pageFooter {
+	color: #FFF;
 	font-size: 87.5%;
-	line-height: 1.3em;
-}
-#footer address {
+	line-height: 1.5em;
+	}
+
+#pageFooter address {
 	position: relative;
-	margin: .5em 0 0 0;
+	margin: 0em auto;
 	text-align: right;
+	width:960px;
 }
-#footer a {
+#pageFooter a {
 	font-variant: small-caps;
 	font-style: normal;
-	color: #77d;
+	color: #f6921e;
 	text-decoration: none;
 }
-#footer .copyright {
+#pageFooter .copyright {
 	position: absolute;
 	left: 0;
 	text-align: left;
 	display: block;
 }
-#footer .engine {
+#pageFooter .engine {
 	position: absolute;
+	right: 0;
 	text-align: right;
 	display: block;
-	right: 0;
+	
 }
+
 /* @end */
 
 
@@ -514,6 +521,9 @@ img.maruku-png { }
 .prev-next .next{ 
 	float:right;
 }	
+.prev-next .prev{ 
+	float:left;
+}
 
 /* tag_box ======================================================== */
 .tag_box {
